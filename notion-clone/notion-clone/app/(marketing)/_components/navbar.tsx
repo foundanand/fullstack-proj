@@ -1,11 +1,14 @@
 "use client";
 
+import { useConvexAuth } from "convex/react";
+
 import { ModeToggle } from "@/components/mode-toggle";
 import { useScrollTop } from "@/hooks/user-scroll-top";
 import { cn } from "@/lib/utils";
 import { Logo } from "./logo";
 
 export const Navbar = () => {
+  const { isAuthenicated, isLoading} = useConvexAuth();
   const scrolled = useScrollTop();
   return (
     <div
