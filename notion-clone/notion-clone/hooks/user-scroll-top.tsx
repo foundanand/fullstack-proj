@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { threadId } from "worker_threads";
 
 export const useScrollTop = (threshold = 10) => {
     const [scrolled, setScrolled] = useState(false);
@@ -15,5 +16,5 @@ export const useScrollTop = (threshold = 10) => {
 
         window.addEventListener("scroll", handleScroll);
         return() => window.removeEventListener("scroll", handleScroll)
-    }, []);
+    }, [threshold]);
 }
